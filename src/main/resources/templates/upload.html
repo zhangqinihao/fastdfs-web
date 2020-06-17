@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+    <!--上传文件的表单 method必须为post   必须指定enctype属性为multipart/form-data  -->
+   <form th:action="@{|/upload|}" target="success" method="post" enctype="multipart/form-data">
+       姓名:<span th:text="${creditorInfo.realName}"></span><br>
+       性别:<span th:text="${creditorInfo.sex==1?'男':'女'}"></span><br>
+       电话:<span th:text="${creditorInfo.phone}"></span><br>
+       地址:<span th:text="${creditorInfo.address}"></span><br>
+       文件:<input type="file" name="myFile"><br>
+       <input type="hidden" name="id" th:value="${creditorInfo.id}">
+       <input type="submit" value="上传文件">
+   </form>
+
+    <iframe name="success" style="display: none"></iframe>
+</body>
+</html>
